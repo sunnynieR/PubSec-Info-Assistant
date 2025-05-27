@@ -8,3 +8,19 @@ The functional test are invoked as needed throughout the development process. It
 
 To add more test cases, include new files for ingestions into the `.\tests\test_data` folder and name the file `test_example` with the filetype extension appropriate for the new test case.
 A search query for that file will need to be added to the test harness code near the top of the python file.
+
+## Selenium end-to-end test
+
+The file `test_selenium_upload.py` contains a Selenium based test that verifies
+the file upload workflow in the web UI. The test requires a running instance of
+the Information Assistant web application and Google Chrome with a compatible
+ChromeDriver on the system path.
+
+Run the test by providing the base URL of the web app:
+
+```bash
+python test_selenium_upload.py --base-url http://localhost:3000
+```
+
+The script will create a folder, add a tag, upload the sample PDF from the
+`test_data` folder and wait for the progress bar to complete.
